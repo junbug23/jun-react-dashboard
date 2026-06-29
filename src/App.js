@@ -6,9 +6,12 @@ import ExternalQuotes from './components/ExternalQuotes';
 import './App.css';
 
 function App() {
+  // Tracks current view navigation ('dashboard' or 'about')
   const [view, setView] = useState('dashboard'); 
+  // Tracks active user UI theme mode
   const [isDarkMode, setIsDarkMode] = useState(false);
   
+  // Local state initialized with fallback quotes or data retrieved from local storage
   const [quotes, setQuotes] = useState(() => {
     const savedQuotes = localStorage.getItem('workspace_quotes');
     if (savedQuotes) {
@@ -22,20 +25,24 @@ function App() {
     }
   });
 
+  // Syncs the quote array state to local storage whenever changes occur
   useEffect(() => {
     localStorage.setItem('workspace_quotes', JSON.stringify(quotes));
   }, [quotes]);
 
+  // Adds a newly submitted custom user quote to the front of the array tracking state
   const handleAddQuote = (newQuote) => {
     setQuotes([newQuote, ...quotes]);
   };
 
+  // Filters out a quote from state utilizing its unique ID identifier
   const handleDeleteQuote = (targetId) => {
     setQuotes(quotes.filter((q) => q.id !== targetId));
   };
 
   return (
     <div className={isDarkMode ? "dark-theme" : "classic-brown-theme"}>
+      {/* App header view containing navigation menu options */}
       <Header 
         view={view} 
         setView={setView} 
@@ -48,13 +55,14 @@ function App() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
             
             <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
+              {/* Sidebar console panel displaying state metrics */}
               <div className="box" style={{ flex: 1, minWidth: '250px' }}>
                 <h3>Workspace Status Console</h3>
                 <p>Current Navigation Mode Flag: <strong>{view}</strong></p>
                 <p>Active Local Array Count: <strong>{quotes.length} items loaded</strong></p>
               </div>
               <div style={{ flex: 3, minWidth: '300px' }}>
-                {/* Merged Form Component handling all behaviors */}
+                {/* Form layout component managing creation and deletion inputs */}
                 <QuoteForm 
                   quotes={quotes} 
                   onAddQuote={handleAddQuote} 
@@ -63,6 +71,7 @@ function App() {
               </div>
             </div>
 
+            {/* Asynchronous third-party API rendering layout component */}
             <ExternalQuotes localQuotes={quotes} />
             
           </div>

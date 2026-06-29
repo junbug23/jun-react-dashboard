@@ -1,26 +1,30 @@
-// src/components/Header.js
 import React from 'react';
 
 function Header({ view, setView, isDarkMode, setIsDarkMode }) {
   return (
-    <header className="site-header">
-      <h2 className="site-title">Jun Brooks | Dashboard</h2>
-      <nav className="nav-menu">
+    <header style={{ 
+      display: 'flex', 
+      justifyContent: 'space-between', 
+      alignItems: 'center', 
+      padding: '20px', 
+      borderBottom: '1px solid var(--border-color, #fff)' 
+    }}>
+      <h1 style={{ margin: 0, fontWeight: 'bold' }}>QuoteFinder</h1>
+      
+      <nav style={{ display: 'flex', gap: '10px' }}>
         <button 
-          className="nav-btn" 
+          className={view === 'dashboard' ? 'active-btn' : ''} 
           onClick={() => setView('dashboard')}
-          style={{ textDecoration: view === 'dashboard' ? 'underline' : 'none' }}
         >
           Workspace
         </button>
         <button 
-          className="nav-btn" 
+          className={view === 'about' ? 'active-btn' : ''} 
           onClick={() => setView('about')}
-          style={{ textDecoration: view === 'about' ? 'underline' : 'none' }}
         >
           About Me
         </button>
-        <button className="theme-toggle-btn" onClick={() => setIsDarkMode(!isDarkMode)}>
+        <button onClick={() => setIsDarkMode(!isDarkMode)}>
           Switch Theme
         </button>
       </nav>
