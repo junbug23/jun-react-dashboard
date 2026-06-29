@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/jun-react-dashboard/static/css/main.58d4deff.css",
+    "main.js": "/jun-react-dashboard/static/js/main.a87ae95d.js",
+    "static/js/453.6ff4b719.chunk.js": "/jun-react-dashboard/static/js/453.6ff4b719.chunk.js",
+    "index.html": "/jun-react-dashboard/index.html",
+    "main.58d4deff.css.map": "/jun-react-dashboard/static/css/main.58d4deff.css.map",
+    "main.a87ae95d.js.map": "/jun-react-dashboard/static/js/main.a87ae95d.js.map",
+    "453.6ff4b719.chunk.js.map": "/jun-react-dashboard/static/js/453.6ff4b719.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.58d4deff.css",
+    "static/js/main.a87ae95d.js"
+  ]
+}
