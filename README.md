@@ -41,8 +41,16 @@ My Contributions: I conceived the initial layout concept, established the projec
 AI Contributions: AI assistance was utilized to accelerate the development of complex CSS layouts (specifically optimizing flexbox positioning and layout alignment) and to help refine the asynchronous JavaScript/React fetch loops. This collaboration permitted automated code formatting while ensuring I maintained complete design oversight, logic ownership, and final control over what rendered on screen.
 
 
+5. Local Custom Domain Configuration
 
+To run this React application locally using a custom domain name instead of `localhost:3000`, follow these configuration steps:
 
+1. Open your text editor (e.g., Notepad) with **Administrative Privileges**.
+2. Navigate to and open the Windows system hosts file located at:
+   `C:\Windows\System32\drivers\etc\hosts`
+3. Add the following entry at the very bottom of the file to map the local loopback address:
+   ```text
+   127.0.0.1       quotefinder.local
 
 
 
